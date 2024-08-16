@@ -4,18 +4,17 @@ import { Link } from 'react-router-dom'
 import { Context } from '../context/Context'
 
 const ProductCard = ({ prod, isLoading }) => {
+    
     const {sortedProducts, currentPage} = useContext(Context)
 
     const openCardItem = ()=>{
-        localStorage.setItem('productItem', JSON.stringify(prod));
         localStorage.setItem('currentPage', JSON.stringify(currentPage));
-        // console.log(sortedProducts);
         localStorage.setItem('sortedProducts', JSON.stringify(sortedProducts));
     }
 
     return (
         <>
-            <Link to={"/productItem"} onClick={()=>openCardItem()} className="products__wrap-cards-card">
+            <Link to={`/productItem/${prod?.id}`} onClick={()=>openCardItem()} className="products__wrap-cards-card">
                 {
                     isLoading ? (
                         <ContentLoader 

@@ -38,13 +38,10 @@ const Products = () => {
     useEffect(() => {
         handleCurrentProds();
     }, [currentPage, sortedProducts])
-
-    // useEffect(() => {
-    //     console.log("sort");
-    // }, [sortedProducts])
     
 
     const sortProducts = (order) => {
+        setIsLoading(true)
         let sorted = [...products];
         if (order === 'name') {
             sorted.sort((a, b) => a.title.localeCompare(b.title)); 
@@ -56,6 +53,9 @@ const Products = () => {
         setSortedProducts(sorted);
         setModalSortOpen(false);
         setCurrentPage(0);
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 600);
     };
 
     const handleCurrentProds = () => {
@@ -67,13 +67,18 @@ const Products = () => {
     const handlePages = (order) => {
         if (order === "+") {
             if (currentPage < Math.ceil(products.length / 13)) {
+                setIsLoading(true)
                 setCurrentPage(currentPage + 1);
             }
         } else if (order === "-") {
             if (currentPage > 0) {
+                setIsLoading(true)
                 setCurrentPage(currentPage - 1);
             }
         }
+        setTimeout(() => {
+            setIsLoading(false) 
+        }, 600);
     };
     
 
@@ -83,11 +88,10 @@ const Products = () => {
                 <ProductCard key={index} isLoading={true} />
             ));
         }
-        return currentProducts.map((prod) => (
-            <ProductCard prod={prod} key={prod.id} isLoading={false}/>
+        return currentProducts.map((prod, i) => (
+            <ProductCard prod={prod} key={i} isLoading={false}/>
         ));
     };
-
     return (
         <>
             <div className="products">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import basket from "../assets/images/basket.png";
 import logo from "../assets/images/logo.png";
 import { Link } from 'react-router-dom';
@@ -18,7 +18,7 @@ const Navbar = () => {
                             <a href="">Новинки</a>
                         </li>
                         <li className="header__wrap-nav-item">
-                            <a href="">Категории</a>
+                            <Link to={'/categories'}>Категории</Link>
                         </li>
                         <li className="header__wrap-nav-item">
                             <a href="">Скидки</a>
@@ -30,7 +30,9 @@ const Navbar = () => {
                             <a href="">О нас</a>
                         </li>
                     </ul>
-                    <img src={basket} alt="" />
+                    <Link to={'/basket'}> 
+                        <img src={basket} alt="" />
+                    </Link>
                 </div>
             </div>
         </>
