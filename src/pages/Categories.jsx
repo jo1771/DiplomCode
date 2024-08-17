@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchProductsByCategory, getCategories, setCategory } from '../store/categories/categoriesSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import ProductCard from '../components/ProductCard';
 import { Link } from 'react-router-dom';
 
 const Categories = () => {

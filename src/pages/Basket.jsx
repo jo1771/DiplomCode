@@ -50,7 +50,7 @@ const Basket = () => {
                         <>
                             <div className="basket__wrap-title2">
                                 <h1 className='basket__wrap-title-item'>Корзина пока пуста😔</h1>
-                                <Link to={"/"}>
+                                <Link to={"/Diplom"}>
                                     <button className='btn'>Вернуться на главную</button>
                                 </Link>
                             </div>

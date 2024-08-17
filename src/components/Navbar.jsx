@@ -9,25 +9,25 @@ const Navbar = () => {
             <div className="header">
                 <div className="header__wrap container">
                     <div className="header__wrap-logo">
-                        <Link to={'/'}>
+                        <Link to={'/Diplom'}>
                             <img src={logo} alt="" />
                         </Link>
                     </div>
                     <ul className="header__wrap-nav">
                         <li className="header__wrap-nav-item">
-                            <a href="">Новинки</a>
+                            <Link to={'/novelties'}>Новинки</Link>
                         </li>
                         <li className="header__wrap-nav-item">
                             <Link to={'/categories'}>Категории</Link>
                         </li>
                         <li className="header__wrap-nav-item">
-                            <a href="">Скидки</a>
+                            <Link to={'/discounts'}>Скидки</Link>
                         </li>
                         <li className="header__wrap-nav-item">
-                            <a href="">Контакты</a>
+                            <Link to={'/contacts'}>Контакты</Link>
                         </li>
                         <li className="header__wrap-nav-item">
-                            <a href="">О нас</a>
+                            <Link to={'/aboutUs'}>О нас</Link>
                         </li>
                     </ul>
                     <Link to={'/basket'}> 
